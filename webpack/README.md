@@ -1,4 +1,7 @@
 
+文件目录结构：
+![目录结构](https://raw.githubusercontent.com/lh199507/JavascriptCode/master/webpack/Dir.png)
+
 webpack基本配置文件
 ```javascript
 var path = require('path');
