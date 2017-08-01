@@ -1,5 +1,5 @@
 
-##webpack基本配置文件
+##webpack基本配置文件##
 ```javascript
 var path = require('path');
 var webpack = require('webpack');
@@ -20,11 +20,12 @@ const svgDirs = [
 
 
 module.exports = {
-    devtool: 'source-map',
-    entry: {
+    //devtool: 'source-map', 开发环境 易于调试
+    //devtool: 'cheap-module-source-map', 生产环境
+    entry: {
         app: './src/index.js',
-        /*common: ['react', 'react-router', 'react-dom']*/
-    },
+        /*common: ['react', 'react-router', 'react-dom']*/ 在
+    开发环境中可以不用拆分，但在生产中最好拆分},
     output: {
         path: Build_path,
         filename: '[name].js',
@@ -83,11 +84,12 @@ module.exports = {
         ]
     },
     plugins: [
-              /*new webpack.optimize.CommonsChunkPlugin({name: 'common', filename: 'common.js'}),*/
+              /*new webpack.optimize.CommonsChunkPlugin({name: 'common', filename: 'common.js'}),*/
               /*new webpack.optimize.UglifyJsPlugin({
                   include: /\.js$/,
                   minmize: true
               }),*/
+              /* html文地址必须注意 */
               new HtmlWebpackPlugin({
                   filename: '../index.html', //生成的html存放路径，相对于
                   template:  Html_path ,
@@ -96,6 +98,7 @@ module.exports = {
               new ExtractTextPlugin({ filename:'./[name].css', allChunks: true })
     ],
     resolve: {
+        /* 使用antd-mobile时 resolve必须如下配置，但通常情况 按大众配置即可 */
         mainFiles: ["index.web","index"],// 这里哦
         modules: ['app', 'node_modules', path.join(__dirname, '../node_modules')],
         extensions: [
@@ -111,6 +114,4 @@ module.exports = {
         ]
     }
 }
-
-
 ```
