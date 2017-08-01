@@ -118,3 +118,23 @@ module.exports = {
 }
 ```
 ***
+### .babelrc
+```javascript
+/* 一下配置只是为了满足当前需要 */
+{
+    "presets": [
+        "es2015",
+        "stage-3",
+        "react"
+    ],
+    "plugins": [
+        ["import", {
+          "style": "css",
+          "libraryName": "antd-mobile"
+        }],
+        "transform-class-properties",
+        "transform-decorators-legacy",
+        "syntax-dynamic-import"
+    ]
+}
+```
