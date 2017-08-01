@@ -1,9 +1,14 @@
 
-webpack基本配置文件
+### 文件目录结构：
+src文件夹下为项目代码文件
+![目录结构](https://raw.githubusercontent.com/lh199507/JavascriptCode/master/webpack/Dir.png)
+* * *
+### webpack基本配置文件
+由于使用的是[react框架](http://www.css88.com/react/docs/hello-world.html)、[react-dom](http://www.css88.com/react/docs/react-dom.html)、[react-router@3.0.0](http://www.uprogrammer.cn/react-router-cn/docs/API.html)、[antd-mobile](https://mobile.ant.design/docs/react/introduce-cn)，所以采用如下配置，若单纯打包，配置非常简单,可参考[webpack中文文档](https://doc.webpack-china.org/concepts/)。若使用其他框架配置可能需要细微修改
 ```javascript
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin'); // 将样式打包
+var ExtractTextPlugin = require('extract-text-webpack-plugin'); // 将样式打包为一个文件
 var HtmlWebpackPlugin = require('html-webpack-plugin'); //生成html
 
 var Build_path = path.resolve(__dirname, '__build__/static');
@@ -28,8 +33,8 @@ module.exports = {
         path: Build_path,
         filename: '[name].js',
         publicPath: './static/',
-        chunkFilename: './[id].chunk.js'
-    },
+        chunkFilename: './[id].chunk.js' // 将js文件异步加载
+    },
     module: {
         rules: [
             {
@@ -110,6 +115,88 @@ module.exports = {
             'jsnext:main',
             'main',
         ]
+        /* 使用antd-mobile时 resolve必须如下配置，但通常情况 按大众配置即可 */
     }
 }
 ```
+* * *
+### server.js
+使用webpack-hot-middleware和webpack-dev-middleware实时编辑代码。使用express.static设置静态文件目录。
+```javascript
+var express = require("express");
+var path = require('path');
+var webpackHotMiddleware = require('webpack-hot-middleware');
+var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpack = require("webpack");
+var webpackConfig = require("./webpack.config.dev");
+
+var app = express();
+var compiler = webpack(webpackConfig);
+
+app.use(webpackDevMiddleware(webpack(webpackConfig)));
+app.use(webpackHotMiddleware(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+    stats: {
+        colors: true,
+	historyApiFallback:true,
+	inline:true ,  //实时刷新
+	hot:true
+    },
+    quiet: true,
+}));
+var buildPath = "./__build__";
+app.use(express.static(path.resolve(__dirname,buildPath)));//设置静态文件目录
+app.get('*', function(req, res) {
+  res.sendFile(path.resolve(__dirname,buildPath,'./index.html'));
+});
+
+app.listen(3000, function () {
+  console.log("Listening on port 3000!");
+});
+```
+* * *
+### .babelrc文件
+具体细节可参考[babel文档](http://babeljs.cn/docs/usage/babelrc/)
+```javascript
+/* 如下配置只是为了满足当前需要文件 */
+/* Es6语法编译包括react */
+{
+    "presets": [
+        "es2015",
+        "stage-3",
+        "react"
+    ],
+    "plugins": [
+        /* */
+        ["import", {
+          "style": "css",
+          "libraryName": "antd-mobile"
+        }],
+        /**/
+        "transform-class-properties",
+        "transform-decorators-legacy",
+        "syntax-dynamic-import"
+    ]
+}
+```
+* * *
+### postcss.config.js
+由于wenpack中使用了postcss-loader加载器，说在配置中需要创建postcss.config.js。 
+    postcss-loader可以不予使用
+```javascript
+/* 使用postcss-pxtorem的原因是为了兼容antd-mobile的样式问题，若使用其他框架可不予配置 */
+const pxtorem = require('postcss-pxtorem');
+module.exports = {
+    plugins: [
+        require('autoprefixer')({}),
+        pxtorem({
+            rootValue: 57.0,
+            propWhiteList: []
+        })
+    ]
+}
+```
+* * *
+配置完成后即可在package.json中配置命令
+![package.json命令行配置]()
+
