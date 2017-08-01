@@ -2,9 +2,9 @@
 只是自己模拟最简单的观察者模式，但大概的原理应该是这样的
 ```javascript
 ;(function(root){
-	var events={};
-	var ps = root.ps ={
-/* 创建监听 */
+    var events={};
+    var ps = root.ps ={
+	/* 创建监听 */
 	on : function(etype,fn){
 	 events[etype] || (events[etype]=[]);
 	 events[etype].push({
@@ -24,9 +24,9 @@
 	     info.efn(data);
 	   }
 	 })
+	 }
 	}
-	}
-	}
+    }
 })(this);
 	ps.on("aa",function(name){
 		alert(name);
