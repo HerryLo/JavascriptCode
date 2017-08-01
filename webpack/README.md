@@ -2,10 +2,9 @@
 ### 文件目录结构：
 src文件夹下为项目代码文件
 ![目录结构](https://raw.githubusercontent.com/lh199507/JavascriptCode/master/webpack/Dir.png)
-***
-
+* * *
 ### webpack基本配置文件
-      由于使用的是[react框架](http://www.css88.com/react/docs/hello-world.html)、[react-dom](http://www.css88.com/react/docs/react-dom.html)、[react-router@3.0.0](http://www.uprogrammer.cn/react-router-cn/docs/API.html)、[antd-mobile](https://mobile.ant.design/docs/react/introduce-cn)，所以采用如下配置，若单纯打包，配置非常简单,可参考[webpack中文文档](https://doc.webpack-china.org/concepts/)。若使用其他框架配置可能需要细微修改
+由于使用的是[react框架](http://www.css88.com/react/docs/hello-world.html)、[react-dom](http://www.css88.com/react/docs/react-dom.html)、[react-router@3.0.0](http://www.uprogrammer.cn/react-router-cn/docs/API.html)、[antd-mobile](https://mobile.ant.design/docs/react/introduce-cn)，所以采用如下配置，若单纯打包，配置非常简单,可参考[webpack中文文档](https://doc.webpack-china.org/concepts/)。若使用其他框架配置可能需要细微修改
 ```javascript
 var path = require('path');
 var webpack = require('webpack');
@@ -120,7 +119,7 @@ module.exports = {
     }
 }
 ```
-***
+* * *
 ### server.js
 使用webpack-hot-middleware和webpack-dev-middleware实时编辑代码。使用express.static设置静态文件目录。
 ```javascript
@@ -139,9 +138,9 @@ app.use(webpackHotMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
     stats: {
         colors: true,
-		    historyApiFallback:true,
-		    inline:true ,  //实时刷新
-		    hot:true
+	historyApiFallback:true,
+	inline:true ,  //实时刷新
+	hot:true
     },
     quiet: true,
 }));
@@ -155,8 +154,7 @@ app.listen(3000, function () {
   console.log("Listening on port 3000!");
 });
 ```
-
-***
+* * *
 ### .babelrc文件
 具体细节可参考[babel文档](http://babeljs.cn/docs/usage/babelrc/)
 ```javascript
@@ -181,6 +179,7 @@ app.listen(3000, function () {
     ]
 }
 ```
+* * *
 ### postcss.config.js
 由于wenpack中使用了postcss-loader加载器，说在配置中需要创建postcss.config.js。 
     postcss-loader可以不予使用
@@ -197,6 +196,7 @@ module.exports = {
     ]
 }
 ```
-
-
+* * *
+配置完成后即可在package.json中配置命令
+![package.json命令行配置]()
 
