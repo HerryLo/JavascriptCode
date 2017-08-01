@@ -17,8 +17,6 @@ const svgDirs = [
     path.resolve(__dirname, 'src/Img'),  // 2. 自己私人的 svg 存放目录
 ];
 
-
-
 module.exports = {
     //devtool: 'source-map', 开发环境 易于调试
     //devtool: 'cheap-module-source-map', 生产环境
