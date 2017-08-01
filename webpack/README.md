@@ -4,7 +4,7 @@
 ***
 
 ### webpack基本配置文件
-    由于使用的是react框架、react-dom、react-router、antd-mobile，所以采用如下配置，若单纯打包，配置非常简单。若使用其他框架配置可能需要细微修改
+    由于使用的是[react框架](http://www.css88.com/react/docs/hello-world.html)、[react-dom](http://www.css88.com/react/docs/react-dom.html)、[react-router@3.0.0](http://www.uprogrammer.cn/react-router-cn/docs/API.html)、[antd-mobile](https://mobile.ant.design/docs/react/introduce-cn)，所以采用如下配置，若单纯打包，配置非常简单,可参考[webpack中文文档](https://doc.webpack-china.org/concepts/)。若使用其他框架配置可能需要细微修改
 ```javascript
 var path = require('path');
 var webpack = require('webpack');
@@ -121,6 +121,7 @@ module.exports = {
 ```
 ***
 ### .babelrc文件
+具体细节可参考[babel文档](http://babeljs.cn/docs/usage/babelrc/)
 ```javascript
 /* 一下配置只是为了满足当前需要 */
 /* Es6语法编译包括react */
