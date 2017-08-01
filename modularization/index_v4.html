@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+header,footer {
+    background:#eee;
+    line-height: 4em;
+}
+
+section{
+    /*background:#ccc;*/
+}
+
+article div {
+    position:relative;
+    margin:3px;
+    background: #ccc;
+}
+
+article div a{
+    position:absolute;
+    right:20px;
+    top:0px;
+}
+
+#clear-all{display: none;}
+	</style>
+</head>
+<body>
+	  <header>
+	     <input type="" id="editor" placeholder="input something to do ">
+	     <br/>
+	     <input type="checkbox" id="check-all"/>
+	  </header>
+	  <section>
+	    <article>
+	       
+	     </article>
+	  </section>
+	    <footer>
+	      <label id="num">0</label> things left
+	      <button id="clear-all">clearAll</button>
+	    </footer>
+	<script src="ps.js"></script>
+	<script src="header.js"></script>
+	<script src="main.js"></script>
+	<script src="footer.js"></script>
+    <script>
+
+    	//load all data 
+    	window.onload = function(){
+    		//初始化三个组件
+    		headerZone.init("header");
+    		mainZone.init("section");
+    		footerZone.init("footer");
+
+    		//从localStorage获取所有数据
+			var data = [];
+			for(var i=0;i<localStorage.length;i++){
+				var id = localStorage.key(i);
+				var item = JSON.parse(localStorage.getItem(id));
+				data.push(item);
+			}
+
+			//通知mainZone组件渲染数据列表
+			ps.trigger("renderAll",data);
+			//通知footerZone组件更新数据number显示
+			ps.trigger("updateNum",data.length);
+		}
+
+
+    </script>
+</body>
+</html>
