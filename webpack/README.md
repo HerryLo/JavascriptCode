@@ -198,5 +198,5 @@ module.exports = {
 ```
 * * *
 配置完成后即可在package.json中配置命令
-![package.json命令行配置]()
+![package.json命令行配置](https://raw.githubusercontent.com/lh199507/JavascriptCode/master/webpack/package.json.png)
 
