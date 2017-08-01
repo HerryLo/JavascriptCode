@@ -1,3 +1,5 @@
+
+##webpack基本配置文件
 ```javascript
 var path = require('path');
 var webpack = require('webpack');
@@ -8,10 +10,14 @@ var Build_path = path.resolve(__dirname, '__build__/static');
 var Html_path = path.resolve(__dirname, 'src/index.html');
 const Root_Path = path.resolve(__dirname);
 const App_Path = path.resolve(Root_Path, './src');
+
+/* antd-mobile 必须配置 */
 const svgDirs = [
     require.resolve('antd-mobile').replace(/warn\.js$/, ''), // 1. 属于 antd-mobile 内置 svg 文件
     path.resolve(__dirname, 'src/Img'),  // 2. 自己私人的 svg 存放目录
 ];
+
+
 
 module.exports = {
     devtool: 'source-map',
