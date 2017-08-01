@@ -3,7 +3,7 @@ webpack基本配置文件
 ```javascript
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin'); // 将样式打包
 var HtmlWebpackPlugin = require('html-webpack-plugin'); //生成html
 
 var Build_path = path.resolve(__dirname, '__build__/static');
