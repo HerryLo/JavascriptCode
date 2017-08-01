@@ -1,5 +1,5 @@
 
-### 文件目录结构：
+### 文件目录结构
 src文件夹下为项目代码文件
 ![目录结构](https://raw.githubusercontent.com/lh199507/JavascriptCode/master/webpack/Dir.png)
 * * *
