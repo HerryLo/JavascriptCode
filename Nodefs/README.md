@@ -33,7 +33,7 @@ function changeFile(filepath) {
     }
     let finalData = data
     // let regex = new RegExp(/\b\:\s*\d+\.*\d*rem/)
-    finalData = finalData.replace('ID'', 'CD')
+    finalData = finalData.replace('ID', 'CD')
     fs.writeFile(filepath, finalData, function(err) {
       if (err) {
         throw err;
