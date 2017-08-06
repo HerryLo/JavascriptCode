@@ -2,4 +2,4 @@
 
 将一部分代码记录下来，供自我学习，不断进步
 
-[git pro实践](http://iissnan.com/progit/)
+[git pro实践 参考资料](http://iissnan.com/progit/)
