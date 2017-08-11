@@ -1,8 +1,10 @@
 ## Gulp
 
 Gulp.js 是一个自动化构建工具,开发者可以使用它在项目开发过程中自动执行常见任务。
-    [gulp压缩丑化](#a)
-    [gulp与babel配合](#b)
+
+  [gulp压缩丑化](#a)
+
+  [gulp与babel配合](#b)
 
 ### <a id='a'>gulp进行压缩和丑化</a>
 ```javascript
