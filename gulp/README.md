@@ -73,5 +73,6 @@ gulp.task('6to5', function () {
 gulp.task('default', ['6to5'], function (){
     gulp.watch([path.src.js], [babel]);
 });
+
 在cmd中输入gulp 回车即可
 ```

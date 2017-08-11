@@ -3,5 +3,5 @@
 .project
 .settings/
 .svn/
-.idea/
+.idea
 node_modules
