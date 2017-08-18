@@ -28,10 +28,9 @@ var ajax = new ActiveXObject("Microsoft.XMLHTTP");
 
 
 |ajax.open(method,url,async); | 规定请求的类型、URL 以及是否异步处理请求  |
-|                             | * method：请求的类型；GET 或 POST       |
-|                             | * url：文件在服务器上的位置              |
-|                             | * async：true（异步）或 false（同步）    |
-| :-------------------------: | :-----------------------------------:  |
+                                * method：请求的类型；GET 或 POST       
+                                * url：文件在服务器上的位置              
+                                * async：true（异步）或 false（同步）    
+
 |ajax.send(string);           | 将请求发送到服务器。                     |
-|                             | * string：仅用于 POST 请求              |
-| --------------------------- | ---------------------------------------|
+|                              * string：仅用于 POST 请求              
