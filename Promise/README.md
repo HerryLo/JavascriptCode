@@ -4,12 +4,14 @@
 
 >从语法上说，Promise是一个对象，从它可以获取异步操作的消息。
 
-** 对象的状态不受外界影响。Promise对象代表一个异步操作， **有三种状态：**
+对象的状态不受外界影响。Promise对象代表一个异步操作， **有三种状态：**
 
->Pending(进行中): 初始状态，不是成功或失败状态。
+* >Pending(进行中): 初始状态，不是成功或失败状态。
     
->Resolved(已完成 或者fulfilled): 意味着操作成功完成。
+* >Resolved(已完成 或者fulfilled): 意味着操作成功完成。
     
->Rejected(已失败): 意味着操作失败。
+* >Rejected(已失败): 意味着操作失败。
    
-只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是Promise这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。 
+   pending 状态的 Promise 对象可能触发fulfilled 状态并传递一个值给相应的状态处理方法，也可能触发失败状态（rejected）并传递失败信息。
+   
+   当其中任一种情况出现时，Promise 对象的 then 方法绑定的处理方法（handlers ）就会被调用（then方法包含两个参数：onfulfilled 和 onrejected，它们都是 Function 类型。当Promise状态为fulfilled时，调用 then 的 onfulfilled 方法，当Promise状态为rejected时，调用 then 的 onrejected 方法， 所以在异步操作的完成和绑定处理方法之间不存在竞争）。
