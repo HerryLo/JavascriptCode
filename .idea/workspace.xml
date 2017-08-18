@@ -30,8 +30,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ajax/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="584">
+              <caret line="34" column="72" lean-forward="false" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -218,7 +218,7 @@
       <workItem from="1501826656993" duration="1203000" />
       <workItem from="1502364335202" duration="534000" />
       <workItem from="1502415227920" duration="2559000" />
-      <workItem from="1503021266611" duration="1457000" />
+      <workItem from="1503021266611" duration="1497000" />
     </task>
     <task id="LOCAL-00001" summary="gulp配置">
       <created>1502416951706</created>
@@ -245,7 +245,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5753000" />
+    <option name="totallyTimeSpent" value="5793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
@@ -417,8 +417,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ajax/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="584">
+          <caret line="34" column="72" lean-forward="false" selection-start-line="34" selection-start-column="72" selection-end-line="34" selection-end-column="72" />
           <folding />
         </state>
       </provider>
