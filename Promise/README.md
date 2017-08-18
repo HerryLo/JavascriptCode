@@ -18,4 +18,23 @@
    
    因为 [Promise.prototype.then](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) 和 [Promise.prototype.catch](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) 方法返回promise 对象， 所以它们可以被链式调用。
    
-   ![image](https://raw.githubusercontent.com/Herryheng/JavascriptCode/master/images/promises.png)
+   ![image](https://raw.githubusercontent.com/Herryheng/JavascriptCode/master/images/promises.png)
+
+```javascript
+var fs = require('fs')
+
+let pro = () => {
+    return new Promise((resolve, reject)=> {
+        fs.readFile('index.js', 'utf-8',(err, data)=> {
+            if(err) return reject(err);
+            resolve(data);
+        })
+    })
+}
+
+pro().then((data)=> {
+    console.log(data);
+}).catch((err)=> {
+    console.log(err);
+})
+```
