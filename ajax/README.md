@@ -23,7 +23,7 @@ var ajax = new ActiveXObject("Microsoft.XMLHTTP");
     }
   ```
 
-  * ### 向服务器发送请求
+* ### 向服务器发送请求
 > 需将请求发送到服务器，使用 XMLHttpRequest 对象的 open() 和 send() 方法;
 
 
