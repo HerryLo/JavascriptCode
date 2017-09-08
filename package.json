@@ -1,0 +1,32 @@
+{
+  "name": "node_module",
+  "version": "1.0.0",
+  "description": "将一部分代码记录下来，供自我学习，不断进步",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lh199507/JavascriptCode.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lh199507/JavascriptCode/issues"
+  },
+  "homepage": "https://github.com/lh199507/JavascriptCode#readme",
+  "devDependencies": {
+    "async": "^2.5.0",
+    "cheerio": "^1.0.0-rc.2",
+    "eventproxy": "^1.0.0",
+    "mocha": "^3.5.0",
+    "should": "^12.0.0",
+    "superagent": "^3.6.0",
+    "supertest": "^3.0.0",
+    "utility": "^1.12.0"
+  },
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
