@@ -45,8 +45,8 @@ $ git add README.md //添加到缓存区
 
 $ git commit -m 'master修改'
 
-将dev内容合并到master上
-$ git merge dev
+
+$ git merge dev // 将dev内容**合并**到master上
 
 说明:
 >   会出现冲突 ，HEAD为当前代码，删除HEAD即可
