@@ -1,0 +1,26 @@
+{
+  "presets": [
+    "es2015",
+    "stage-3",
+    "react"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "style": "css",
+        "libraryName": "antd-mobile"
+      }
+    ],
+    [
+      "transform-runtime",
+      {
+        "polyfill": false,
+        "regenerator": true
+      }
+    ],
+    "transform-class-properties",
+    "transform-decorators-legacy",
+    "syntax-dynamic-import"
+  ]
+}
