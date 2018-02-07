@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs');
 const https = require('https');
 
-
 const cheerio = require('cheerio');
 const request = require('request');
 const url = 'https://www.pinghongbao.com/meituanwaimai/1'
@@ -10,6 +9,7 @@ const url = 'https://www.pinghongbao.com/meituanwaimai/1'
 let req = https.get(url, (res)=> {
     let data = '';
     res.setEncoding('utf8');
+    
     res.on('data', (chunk) => {
         data += chunk
     });
