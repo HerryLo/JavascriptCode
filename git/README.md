@@ -78,5 +78,4 @@ $ git reset --hard origin/master // 远程分支名称
 <!--git fetch 只是下载远程的库的内容，不做任何的合并 git reset 把HEAD指向刚刚下载的最新的版本-->
 ```
 
-```
 **参考资料:** [廖雪峰教你git命令行](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840202368c74be33fbd884e71b570f2cc3c0d1dcf000)
