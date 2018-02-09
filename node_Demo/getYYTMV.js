@@ -1,5 +1,6 @@
 /*
 * 爬取音悦台 MV
+* 需要在当前目录创建file文件目录
 */
 
 const path = require('path');
