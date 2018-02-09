@@ -58,6 +58,7 @@ $ git commit -m 'master修改'
 $ git log --graph --pretty=oneline --abbrev-commit  // 查看分支的合并情况
 
 $ git branch -d dev  // 删除dev分支
+```
 
 ## git中修改head指向
 ```javascript
