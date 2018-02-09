@@ -59,5 +59,23 @@ $ git log --graph --pretty=oneline --abbrev-commit  // 查看分支的合并情�
 
 $ git branch -d dev  // 删除dev分支
 
+## git中修改head指向
+```javascript
+$   git branch -r // 查看本地head指向
+
+$   git remote set-head origin -d // 删除origin/head
+
+$   git remote set-head origin maser // 设置 head指向
+```
+
+## git放弃本地修改 强制更新
+```javascript
+$ git fetch --all
+
+$ git reset --hard origin/master // 远程分支名称
+
+<!--git fetch 只是下载远程的库的内容，不做任何的合并 git reset 把HEAD指向刚刚下载的最新的版本-->
+```
+
 ```
 **参考资料:** [廖雪峰教你git命令行](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/001375840202368c74be33fbd884e71b570f2cc3c0d1dcf000)
