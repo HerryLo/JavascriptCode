@@ -1,3 +1,7 @@
+/*
+* stream流操作
+*/
+
 const fs = require('fs');
 const request = require('request');
 const path = require('path');

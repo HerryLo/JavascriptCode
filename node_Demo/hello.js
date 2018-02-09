@@ -1,3 +1,7 @@
+/*
+* 爬取饿了吗活动页
+*/
+
 const path = require('path');
 const fs = require('fs');
 const https = require('https');

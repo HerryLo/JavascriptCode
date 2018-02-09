@@ -1,3 +1,7 @@
+/*
+* 爬取网易网易云音乐封面
+*/
+
 const fs = require('fs');
 const request = require('request');
 const path = require('path');
@@ -14,7 +18,10 @@ function list() {
 
 list().then((res)=>{
     const tracks = res.result.tracks;
-    tracks.map(function(item){
-        console.log('name: '+ item.name);
+    [0,1,2,3,4,5,6,7,8,9].map(function( i){
+        let item = tracks[i];
+        request(item.album.picUrl)
+            .pipe(fs.createWriteStream(`./WYIMG/${item.name}封面.jpg`));
+        console.log(`${item.name}.jpg 拉取完成`);
     })
 })
