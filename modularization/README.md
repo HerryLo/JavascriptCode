@@ -29,10 +29,10 @@
 	}
     }
 })(this);
-	ps.on("aa",function(name){
-		alert(name);
-	})
-	ps.off("aa")
-	ps.trigger("aa","刘恒")
+ps.on("aa",function(name){
+	alert(name);
+})
+ps.off("aa")
+ps.trigger("aa","刘恒")
 ```
 以上姿势自己理解的非常简单的观察者模式，如有问题欢迎指正
