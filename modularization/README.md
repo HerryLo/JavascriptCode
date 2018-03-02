@@ -7,15 +7,17 @@
     var ps = root.ps ={
 	/* 创建监听 */
 	on : function(etype,fn){
-	 events[etype] || (events[etype]=[]);
+	if(!events[etype]) (events[etype]=[]
 	 events[etype].push({
 	    etype :  etype,
 	    efn : fn
 	 })
+	 return
 	},
 	/* 注销 */
 	off:function(etype){
 	 events[etype]=[];
+	 return
 	},
 	/* 触发 */
 	trigger:function(etype,data){
