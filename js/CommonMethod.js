@@ -19,7 +19,7 @@ var _method = {
 	  return true;//为空
 	},
 	/**
-	 *替换所有非数组
+	 *替换非数字字符
 	 * @param {}
 	 * @return {String}
 	 */
