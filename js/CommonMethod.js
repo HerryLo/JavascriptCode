@@ -17,5 +17,16 @@ var _method = {
 	      }
 	  }
 	  return true;//为空
+	},
+	/**
+	 *替换所有非数组
+	 * @param {}
+	 * @return {String}
+	 */
+	ReplaceStr(str, s) {
+	  if(typeof str != "string"){
+		  throw new Error(('arguments Type Error'))
+	  }
+	  return str.replace(/[^\d.]/g, s);
 	}
 }
