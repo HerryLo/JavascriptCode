@@ -70,5 +70,5 @@ var _method = {
 		    case '"': return '&quot;';
 		}
 	});
-};
+}
 }
