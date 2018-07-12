@@ -2,7 +2,7 @@
 
 将一部分代码记录下来，供自我学习，不断进步
 
-[node爬虫](./node_reptile/README.md)
+[node爬虫](./node_reptile)
 
 [git pro实践 参考资料](http://iissnan.com/progit/)
 
