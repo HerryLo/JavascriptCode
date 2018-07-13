@@ -1,4 +1,4 @@
-var main = require('../src/node5.js');
+var main = require('../src/mocha.js');
 var should = require('should');
 
 describe('test/node5.test.js' , function () {
