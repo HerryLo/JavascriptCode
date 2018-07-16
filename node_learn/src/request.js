@@ -22,10 +22,8 @@ function httpRequest(options) {
     return new Promise((resolve, reject)=> {
         try{
             const req = https.request(options, (res) => {
-                // console.log('状态码：', res.statusCode);
-                // console.log('请求头：', res.headers);
                 res.on('data', (d) => {
-                    resolve(d);
+                    resolve(d.toString('utf8'))
                 });
             });
             req.on('error', (e) => {
@@ -40,9 +38,12 @@ function httpRequest(options) {
 }
 
 async function main() {
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
         await httpRequest(options).then((d)=> {
+            // console.log(d);
             console.log(`请求${hostname}${hostpath}的次数达到${i+1}次`);
+        }).catch(()=> {
+            console.log()
         })
     }
 }
