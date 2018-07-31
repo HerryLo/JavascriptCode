@@ -1,5 +1,7 @@
 ## Promise 异步编程
 
+Promise 本身是同步的，是为了解决异步编程而出现
+
 * ### [Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)是异步编程的一种解决方案，比传统的解决方案（回调函数和事件）更合理更强大。
 
 >从语法上说，Promise是一个对象，从它可以获取异步操作的消息。
