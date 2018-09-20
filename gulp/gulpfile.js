@@ -1,12 +1,12 @@
 /* 可使用gulp编译压缩文件 dist为所压缩文件的目录 */
-var gulp = require('gulp'),
+let gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
-    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     imagemin = require('gulp-imagemin'),
-    htmlmin = require('gulp-htmlmin'),
-    babel = require('gulp-babel');
+    htmlmin = require('gulp-htmlmin');
+let babel = require('gulp-babel');
+// let concat = require('gulp-concat'),
 
 gulp.task('testHtmlmin',function() {
     var options = {
@@ -19,21 +19,21 @@ gulp.task('testHtmlmin',function() {
         minifyJS: true,//压缩页面JS
         minifyCSS: true//压缩页面CSS
     };
-    gulp.src('./activity/gp16/*.html')
+    gulp.src('./activity/*.html')
         .pipe(htmlmin(options))
         .pipe(gulp.dest('dist/'));
 });
 
 //压缩css
 gulp.task('minifycss', function () {
-    return gulp.src('./activity/gp16/css/*.css')    //需要操作的文件
+    return gulp.src('./activity/css/*.css')    //需要操作的文件
         .pipe(rename({suffix: ''}))   //rename压缩后的文件名
         .pipe(minifycss())   //执行压缩
         .pipe(gulp.dest('dist/css'));   //输出文件夹
 });
 //压缩,合并 js
 gulp.task('minifyjs', function () {
-    return gulp.src('./activity/gp16/js/*.js')   //需要操作的文件
+    return gulp.src(['./activity/js/*.js'])  //需要操作的文件
         .pipe(babel())
         .pipe(uglify())    //压缩
         .pipe(gulp.dest('dist/js'));       //输出到文件夹
@@ -41,17 +41,17 @@ gulp.task('minifyjs', function () {
 
 // 压缩图片
 gulp.task('testImagemin', function () {
-    gulp.src('./activity/gp16/img/*.{png,jpg,gif,ico}')
+    gulp.src('./activity/img/*.{png,jpg,gif,ico}')
         .pipe(imagemin())
         .pipe(gulp.dest('dist/img'));
 });
 
 //默认命令，在cmd中输入npm run dev 监听gulp打包
 gulp.task('watch',function () {
-    gulp.watch('./activity/gp16/*.html',['testHtmlmin']);
-    gulp.watch('./activity/gp16/js/*.js',['minifyjs']);
-    gulp.watch('./activity/gp16/css/*.css',['minifycss']);
-    gulp.watch('./activity/gp16/img/*.{png,jpg,gif,ico}',['testImagemin']);
+    gulp.watch('./activity/*.html',['testHtmlmin']);
+    gulp.watch('./activity/js/*.js',['minifyjs']);
+    gulp.watch('./activity/css/*.css',['minifycss']);
+    gulp.watch('./activity/img/*.{png,jpg,gif,ico}',['testImagemin']);
 })
 //默认命令，在cmd中输入gulp后，执行的就是这个任务(压缩js需要在检查js之后操作)
 gulp.task('default',['testHtmlmin', 'minifyjs', 'testImagemin', 'minifycss', 'watch']);

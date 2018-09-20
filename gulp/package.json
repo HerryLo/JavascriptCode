@@ -1,22 +1,25 @@
 {
-  "name": "gulpfile",
+  "name": "activity",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "liuheng",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-jshint": "^2.0.4"
+    "jq": "^1.7.2"
   },
   "devDependencies": {
-    "del": "^3.0.0",
-    "gulp-concat": "^2.6.1",
+    "@babel/core": "^7.1.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^4.1.0",
     "gulp-minify-css": "^1.2.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^3.0.0"
+    "gulp-rename": "^1.4.0",
+    "gulp-uglify": "^3.0.1"
   }
 }
