@@ -90,7 +90,7 @@ function _applyBtn(e, id) {
             smallLoanId: dataId
         },
         headers: {
-            'access-token': resultM?resultM:'',
+            'accessToken': resultM?resultM:'',
             'source': '4',
             'channel': 'duanxin'
         },
