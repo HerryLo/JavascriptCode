@@ -92,7 +92,7 @@ function _applyBtn(e, id) {
         headers: {
             'accessToken': resultM?resultM:'',
             'source': '4',
-            'channel': 'duanxin'
+            'h5Source': ''
         },
         success: function(res) {
             if(res.resultCode == 200){
