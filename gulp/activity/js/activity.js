@@ -38,6 +38,26 @@ _0xd5afx8 = _0xd5afxd(_0xd5afx8, _0xd5afxc);
 return _0xd5afx8
 }
 
+/*
+* 获取location.search 地址参数
+* params n 参数名
+*/
+function locsearch(n) {
+    var ls = location.search;
+    var lo = '';
+    var r = new RegExp("[\?\&]"+n+"=([^&?]*)(\\s||$)", "gi");
+    var r1=new RegExp(n+"=","gi");
+    if(ls.indexOf('?') > -1){
+        lo = ls.match(r);
+        if(lo == null){
+            return "";
+        }else{
+            return typeof(lo[0].split(r1)[1])=='undefined'?'':decodeURIComponent(lo[0].split(r1)[1]);
+        }
+    }
+    return lo
+}
+
 // 请求token
 function getSendCode() {
 $.ajax({
@@ -83,6 +103,7 @@ function ajaxPost() {
 
 function _applyBtn(e, id) {
     var dataId = $(e).attr('data-id') || id;
+    var h5Source = locsearch('channel')
     $.ajax({
         url: httpUrl+'/api/pc/apply/smallloan',
         type: 'POST',
@@ -92,7 +113,7 @@ function _applyBtn(e, id) {
         headers: {
             'accessToken': resultM?resultM:'',
             'source': '4',
-            'h5Source': ''
+            'h5Source': h5Source?h5Source:''
         },
         success: function(res) {
             if(res.resultCode == 200){
