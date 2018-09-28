@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gulp-clean-css": "^3.10.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-strip-comments": "^2.5.2",
     "jq": "^1.7.2"
   },
   "devDependencies": {
