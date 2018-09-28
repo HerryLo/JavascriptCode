@@ -31,20 +31,21 @@
 <script src="./js/activity.js" async></script>
 <script>
     $('.btnTwo').click(function(){
+        var h5Source = locsearch('channel')
         if(!regState) return false;
         regState = false;
         var src = 'https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-duanxin/app-duanxin-release_100_jiagu_sign.apk';
-        if(resultM) {
-            location.href = src;
-            return false;
-        }
+        // if(resultM) {
+        //     location.href = src;
+        //     return false;
+        // }
         $.ajax({
-            url: httpUrl+'/api/pc/login',
+            url: httpUrl+'/baibaodai/borrow/app/news/user/login',
             type: 'POST',
             data: {
                 mobile:$('#phoneNumber').val(),
                 code: $('#verCode').val(),
-                channel: 'duanxin'
+                h5Source: h5Source?h5Source:''
             },
             success: function (data) {
                 if(data.resultCode == 200){

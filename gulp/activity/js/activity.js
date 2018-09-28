@@ -156,6 +156,7 @@ function setInterValFun() {
 
 function btnEvent(){
     $('.btn').click(function(){
+        var h5Source = locsearch('channel')
         if(!regState) return false;
         regState = false;
         var src = 'https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-duanxin/app-duanxin-release_100_jiagu_sign.apk';
@@ -169,7 +170,7 @@ function btnEvent(){
             data: {
                 mobile:$('#phoneNumber').val(),
                 code: $('#verCode').val(),
-                channel: 'duanxin'
+                h5Source: h5Source?h5Source:''
             },
             success: function (data) {
                 if(data.resultCode == 200){
