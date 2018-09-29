@@ -22,21 +22,26 @@
     margin-top: 10px;
 }
 .phone_input {
-    color: rgba(248, 178, 146, 1);
+    color:rgba(51,51,51,1);
+    font-size: 14px;
 }
 .phone_num input::-webkit-input-placeholder {
-    color: rgba(248, 178, 146, 1);
+    color:rgba(152,152,152,1);
+    font-size: 12px;
 }
 
 .phone_num input:-moz-placeholder{
-    color: rgba(248, 178, 146, 1);
+    color:rgba(152,152,152,1);
+    font-size: 12px;
 }
 
 .phone_num input::-moz-placeholder {
-    color: rgba(248, 178, 146, 1);
+    color:rgba(152,152,152,1);
+    font-size: 12px;
 }
 .phone_num input:-ms-input-placeholder {
-    color: rgba(248, 178, 146, 1);
+    color:rgba(152,152,152,1);
+    font-size: 12px;
 }
 
 .phone{
