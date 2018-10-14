@@ -156,6 +156,7 @@ function setInterValFun() {
 
 function btnEvent(){
     $('.btn').click(function(){
+        // location.href = './download.html';
         var h5Source = locsearch('channel')
         if(!regState) return false;
         regState = false;
@@ -176,8 +177,45 @@ function btnEvent(){
                 if(data.resultCode == 200){
                     var resultModel = data.resultModel
                     regState = true;
-                    location.href = src;
+                    location.href = './download.html';
                     $('.phone_isShow').hide();
+                    localStorage.setItem('_ResultModel', resultModel)
+                }else{
+                    alert(data.resultMessage)
+                }
+            },
+            error: function(){
+                regState = true;
+                alert('抱歉！网络异常, 请稍后重试');
+            }
+        })
+    })
+
+    $('.btnTwo').click(function(){
+        location.href = './download.html';
+        var h5Source = locsearch('channel')
+        if(!regState) return false;
+        regState = false;
+        var src = 'https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-duanxin/app-duanxin-release_100_jiagu_sign.apk';
+        // if(resultM) {
+        //     location.href = src;
+        //     return false;
+        // }
+        $.ajax({
+            url: httpUrl+'/api/pc/login',
+            type: 'POST',
+            data: {
+                mobile:$('#phoneNumber').val(),
+                code: $('#verCode').val(),
+                h5Source: h5Source?h5Source:''
+            },
+            success: function (data) {
+                if(data.resultCode == 200){
+                    var resultModel = data.resultModel
+                    regState = true;
+                    // location.href = src;
+                    location.href = './download.html';
+                    // $('.phone_isShow').hide();
                     localStorage.setItem('_ResultModel', resultModel)
                 }else{
                     alert(data.resultMessage)
@@ -215,6 +253,7 @@ function btnEvent(){
             },
             error: function(){
                 states = true;
+                alert('抱歉！网络异常, 请稍后重试');
             }
         })
         }
