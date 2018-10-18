@@ -192,7 +192,7 @@ function btnEvent(){
     })
 
     $('.btnTwo').click(function(){
-        location.href = './download.html';
+        // location.href = './download.html';
         var h5Source = locsearch('channel')
         if(!regState) return false;
         regState = false;
