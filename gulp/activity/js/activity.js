@@ -181,6 +181,7 @@ function btnEvent(){
                     $('.phone_isShow').hide();
                     localStorage.setItem('_ResultModel', resultModel)
                 }else{
+                    regState = true;
                     alert(data.resultMessage)
                 }
             },
@@ -218,6 +219,7 @@ function btnEvent(){
                     // $('.phone_isShow').hide();
                     localStorage.setItem('_ResultModel', resultModel)
                 }else{
+                    regState = true;
                     alert(data.resultMessage)
                 }
             },
