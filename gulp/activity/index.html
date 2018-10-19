@@ -25,11 +25,68 @@
             left: 45.2%;
             z-index: 100;
         }
+        .ones{
+            display: block;
+            width:7%;
+            height:2.9%;
+            position: absolute;
+            top: 6%;
+            right: 4%;
+            font-size:1rem;
+            font-weight:bold;
+            text-decoration:underline;
+            color:rgba(255,255,255,1);
+        }
+        .ones:hover .descImg{
+            display: block;
+        }
+        .descImg{
+            display: none;
+            width: 25.3%;
+            height: 22.5%;
+            background: url('./img/index3copy@2x.png') center center no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 11.1%;
+            right: 5%;
+        }
+        .desc{
+            margin: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            font-size:0.8rem;
+            line-height:1.5rem;
+            color:rgba(51,51,51,1);
+            width:81%;
+            height:56.7%;
+        }
     </style>
 </head>
 <body>
     <div class="bg">
+        <a class="ones" id="ones">关于我们</a>
+        <div class="descImg" id="descImg">
+            <div class="desc">
+                百宝贷属于杭州美烨智创信息科技有限公司，本台致力于打造国内最专业的信贷信息服务平台，能使贷款用户更方便快捷获得信贷机构的贷款，更能使信贷员获得一个安全自由的抢单平台，为信贷机构提供更优质的客户资源。
+            </div>
+        </div>
         <a href=" https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-pc/app-pc-release.apk" class="btn"></a>
     </div>
 </body>
+<script>
+    var ones = document.getElementById('ones');
+    function eleEvent(s) {
+        var descImg = document.getElementById('descImg');
+        descImg.style.display = s;
+    }
+    ones.onmouseover = function(){
+        eleEvent('block')
+    }
+    ones.onmouseout = function(){
+        eleEvent('none')
+    }
+</script>
 </html>
