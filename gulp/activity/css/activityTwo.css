@@ -14,7 +14,8 @@
     margin: 1.2rem auto auto auto;
     width: 54%;
     height: 6.34rem;
-    background: url('../img/btntwo@2x.png') center center no-repeat;
+    background: url('../img/btnTwo@2x-1.png') center center no-repeat;
+    /* background: url('../img/btntwo@2x.png') center center no-repeat; */
     background-size: 100% 6.34rem;
 }
 
@@ -75,4 +76,60 @@
 .btn_sign_rule{
     background: url('../img/rule@2x-1.png') center center no-repeat;
     background-size: 100% 100%;
+}
+
+.twoBgMoney{
+    margin: 1.87rem auto auto auto;
+    width: 70.6%;
+    height: 7.15rem;
+    background: url('../img/regSuccess@2x.png') center center no-repeat;
+    background-size: 100% 100%;
+}
+.twoBtnSuccess{
+    display: block;
+    margin: 2.18rem auto auto auto;
+    width: 54%;
+    height: 3.15rem;
+    background: url('../img/twoBtnSuccess@2x.png') center center no-repeat;
+    background-size: 100% 3.15rem;
+}
+
+/* 动画 */
+.prog{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background:rgba(246,246,246,1);
+    overflow: auto;
+}
+.wrap_animation{
+    margin: auto;
+    width: 80%;
+}
+.animation{
+    height: 0.625rem;
+    width: 100%;
+    background: url('../img/group2@2x.png') no-repeat center center;
+    background-size: 100% 0.625rem;
+    animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
+}
+@-webkit-keyframes animate-positive{
+    0% { width: 0; }
+}
+@keyframes animate-positive{
+    0% { width: 0; }
+}
+/* @keyframes progress-bar-stripes{
+    0% {
+        background-position: 40px 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+} */
+.prog .desc{
+    margin: 1.25rem auto auto auto;
+    font-size:1rem;
+    color:rgba(152,152,152,1);
+    text-align: center;
 }

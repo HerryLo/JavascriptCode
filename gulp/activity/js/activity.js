@@ -5,6 +5,8 @@ var time = 60;
 var self = {}
 var states = true;
 var regState = true;
+var twoActTimer = null;
+var twoActCount = 0;
 var resultM = localStorage.getItem('_ResultModel') || '';
 
 var _0x1d0a = ["\x30", "\x31", "\x32", "\x33", "\x34", "\x35", "\x36", "\x37", "\x38", "\x39", "\x41", "\x42", "\x43", "\x44", "\x45", "\x46", "\x47", "\x48", "\x49", "\x4A", "\x4B", "\x4C", "\x4D", "\x4E", "\x4F", "\x50", "\x51", "\x52", "\x53", "\x54", "\x55", "\x56", "\x57", "\x58", "\x59", "\x5A", "", "\x72\x61\x6E\x64\x6F\x6D", "\x63\x65\x69\x6C", "\x73\x70\x6C\x69\x74", "\x6A\x6F\x69\x6E", "\x6D\x65\x74\x61\x64\x61\x74\x61", "\x73\x75\x62\x73\x74\x72", "\x73\x6F\x75\x72\x63\x65", "\x75\x75\x69\x64", "\x65\x76\x65\x6E\x74", "\x73\x6C\x69\x63\x65"]
@@ -215,8 +217,10 @@ function btnEvent(){
                     var resultModel = data.resultModel
                     regState = true;
                     // location.href = src;
-                    location.href = './download.html';
+                    // location.href = './download.html';
                     // $('.phone_isShow').hide();
+                    $('.bg').hide();
+                    setIntTimer();
                     localStorage.setItem('_ResultModel', resultModel)
                 }else{
                     regState = true;
@@ -260,6 +264,20 @@ function btnEvent(){
         })
         }
     })
+}
+
+function setIntTimer() {
+    $('.prog').show();
+    twoActTimer = setInterval(function() {
+        if(twoActCount >= 3){
+            clearInterval(twoActTimer);
+            $('#hideInput').hide();
+            $('#hideBtn').show();
+            $('.prog').hide();
+            $('.bg').show();
+        }
+        twoActCount++;
+    }, 1000)
 }
 
 function init() {
