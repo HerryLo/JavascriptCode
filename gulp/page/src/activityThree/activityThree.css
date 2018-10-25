@@ -1,0 +1,88 @@
+html,body, div, ul, li{
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+html,body{
+    height: 100%;
+}
+#activityThreeBg{
+    width: 100%;
+    height: 100%;
+    background: url('../img/activityThree/bg1.png') no-repeat center center;
+    background-size: 100% 100%;
+    font-size:28px;
+}
+.activityThreeBanner{
+    width: 100%;
+    height: 100%;
+    /* background: url('../img/activityThree/banner.png') no-repeat center center; */
+    background-size: 100% 100%;
+}
+
+/* 输入框部分 */
+.wrap_content{
+    width: 81.3%;
+    height: 364px;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+}
+.rightIcon{
+    width: 25.5%;
+    height: 107px;
+    background: url('../img/activityThree/money.png') no-repeat center center;
+    background-size: 100% 100%;
+    position: absolute;
+    right: 26px;
+    top: 0px;
+    z-index: 20;
+}
+.content{
+    width:99%;
+    height:323px;
+    background:rgba(255,255,255,1);
+    border:1Px solid rgba(253, 215, 91, 1);
+    box-shadow:0px 0px NaNpx NaNpx rgba(234,81,57,0.5);
+    border-radius:10px;
+    margin-top: 40px;
+    overflow: hidden;
+}
+.content_input{
+    height: auto;
+    padding: 50px 40px 40px 40px;
+}
+.inputClass{
+    
+}
+.line{
+    width: 100%;
+    height:2px;
+    background:rgba(255,159,8,1);
+    border:0px solid rgba(253, 215, 91, 1);
+    box-shadow:0px 0px 0px 0px rgba(234,81,57,0.3);
+    border-radius:1px;
+    margin-top: 18px;
+}
+.inputPhone{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.inputPhone .word{
+    width:125px;
+    font-size:24px;
+    color:rgba(221,221,221,1);
+    margin-left: 40px;
+}
+.inputPhone .input{
+    border: 0;
+    font-size:28px;
+    color:rgba(51,51,51,1);
+    outline: 0;
+}
+.inputPhone .input input{
+    border: 0;
+    color:rgba(51,51,51,1);
+    outline: 0;
+}

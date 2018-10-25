@@ -5,26 +5,23 @@ const uglify = require('gulp-uglify'); //混淆代码
 const imagemin = require('gulp-imagemin'); //压缩图片
 const htmlmin = require('gulp-htmlmin'); //压缩html
 const rename = require('gulp-rename');
-const fileinclude = require('gulp-file-include');
-
+const fileinclude = require('gulp-file-include'); //模版
 const babel = require("gulp-babel"); //babel编译
 const strip = require('gulp-strip-comments'); //删除注释
 const sourcemaps = require('gulp-sourcemaps');
-const temUrl = 'page/src';
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var pxtorem = require('postcss-pxtorem');
 
-gulp.task('fileinclude', function() {
-    gulp.src([`./${temUrl}/*/*.html`])//主文件
-        .pipe(fileinclude({
-            prefix: '@@',//变量前缀 @@include
-            basepath: './page/_include',//引用文件路径
-            indent: true//保留文件的缩进
-        }))
-        .pipe(gulp.dest('./dist'));//输出文件路径
-});
+const temUrl = 'page/src';
+const testHtmlminSrc = [`./${temUrl}/**/*.html`, `./${temUrl}/*.html`];
+const minifycssSrc = [`./${temUrl}/**/*.css`];
+const minifyjsSrc = [`./${temUrl}/**/*.js`];
+const testImageminSrc = [`./${temUrl}/**/*.{png,jpg,gif,ico}`, `./${temUrl}/**/*.{png,jpg,gif,ico}`];
 
 gulp.task('testHtmlmin', function () {
     const options = {
-        removeComments: true,//清除HTML注释
+        removeComments: true, //清除HTML注释
         collapseWhitespace: true, //压缩HTML
         removeEmptyAttributes: true, //删除所有空格作属性值 <input id="" /> ==> <input />
         minifyJS: true, //压缩页面JS
@@ -33,46 +30,66 @@ gulp.task('testHtmlmin', function () {
         // removeScriptTypeAttributes: true,//删除<script>的type="text/javascript"
         //removeStyleLinkTypeAttributes: true,//删除<style>和<link>的type="text/css"
     };
-    gulp.src(`./${temUrl}/*.html`)
+    gulp.src(testHtmlminSrc)
+        .pipe(fileinclude({
+            prefix: '@@', //变量前缀 @@include
+            basepath: './page/_include', //引用文件路径
+            indent: true //保留文件的缩进
+        }))
         .pipe(htmlmin(options))
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist'));
 });
 
 //压缩css
 gulp.task('minifycss', function () {
-    return gulp.src(`./${temUrl}/css/*.css`) //需要操作的文件
+    var processors = [
+        autoprefixer({
+            browsers: 'last 3 version'
+        }),
+        pxtorem({
+            rootValue: 32,
+            propWhiteList: []
+        })
+    ];
+
+    gulp.src(minifycssSrc) //需要操作的文件
         .pipe(rename({
             suffix: ''
         })) //rename压缩后的文件名
+        .pipe(postcss(processors))
         .pipe(minifycss()) //执行压缩
-        .pipe(gulp.dest('dist/css')); //输出文件夹
+        .pipe(gulp.dest('dist')); //输出文件夹
 });
+
 //压缩,合并 js
 gulp.task('minifyjs', function () {
-    return gulp.src([`./${temUrl}/js/*.js`]) //需要操作的文件
+    gulp.src(minifyjsSrc) //需要操作的文件
         .pipe(sourcemaps.init())
-        .pipe(strip())  //去除注释
+        .pipe(strip()) //去除注释
         .pipe(babel({
-			presets: ['env']
-		}))
-        .pipe(sourcemaps.write({addComment: false}))
+            presets: ['env']
+        }))
+        .pipe(sourcemaps.write({
+            addComment: false
+        }))
         .pipe(uglify()) //压缩
-        .pipe(gulp.dest('dist/js')); //输出到文件夹
+        .pipe(gulp.dest('dist')); //输出到文件夹
 });
 
 // 压缩图片
 gulp.task('testImagemin', function () {
-    gulp.src(`./${temUrl}/img/*.{png,jpg,gif,ico}`)
+    gulp.src(testImageminSrc)
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/img'));
+        .pipe(gulp.dest('dist'));
 });
 
 //默认命令，在cmd中输入npm run dev 监听gulp打包
 gulp.task('watch', function () {
-    gulp.watch(`./${temUrl}/*.html`, ['testHtmlmin']);
-    gulp.watch(`./${temUrl}/js/*.js`, ['minifyjs']);
-    gulp.watch(`./${temUrl}/css/*.css`, ['minifycss']);
-    gulp.watch(`./${temUrl}/img/*.{png,jpg,gif,ico}`, ['testImagemin']);
+    gulp.watch(testHtmlminSrc, ['testHtmlmin']);
+    gulp.watch(minifyjsSrc, ['minifyjs']);
+    gulp.watch(minifycssSrc, ['minifycss']);
+    gulp.watch(testImageminSrc, ['testImagemin']);
 })
+
 //默认命令，在cmd中输入gulp后，执行的就是这个任务(压缩js需要在检查js之后操作)
 gulp.task('default', ['testHtmlmin', 'minifyjs', 'testImagemin', 'minifycss', 'watch']);
