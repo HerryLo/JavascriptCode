@@ -217,10 +217,10 @@ function btnEvent(){
                     var resultModel = data.resultModel
                     regState = true;
                     // location.href = src;
-                    // location.href = './download.html';
+                    location.href = './download.html';
                     // $('.phone_isShow').hide();
-                    $('.bg').hide();
-                    setIntTimer();
+                    // $('.bg').hide();
+                    // setIntTimer();
                     localStorage.setItem('_ResultModel', resultModel)
                 }else{
                     regState = true;

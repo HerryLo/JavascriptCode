@@ -5,11 +5,22 @@ const uglify = require('gulp-uglify'); //混淆代码
 const imagemin = require('gulp-imagemin'); //压缩图片
 const htmlmin = require('gulp-htmlmin'); //压缩html
 const rename = require('gulp-rename');
+const fileinclude = require('gulp-file-include');
 
 const babel = require("gulp-babel"); //babel编译
 const strip = require('gulp-strip-comments'); //删除注释
 const sourcemaps = require('gulp-sourcemaps');
-const temUrl = 'activity';
+const temUrl = 'page/src';
+
+gulp.task('fileinclude', function() {
+    gulp.src([`./${temUrl}/*/*.html`])//主文件
+        .pipe(fileinclude({
+            prefix: '@@',//变量前缀 @@include
+            basepath: './page/_include',//引用文件路径
+            indent: true//保留文件的缩进
+        }))
+        .pipe(gulp.dest('./dist'));//输出文件路径
+});
 
 gulp.task('testHtmlmin', function () {
     const options = {
