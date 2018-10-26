@@ -1,6 +1,6 @@
 ## gulp
 
-first install node;
+使用gulp配置开发，支持Es6语法，template模版、px转rem，有益于小团队的协同开发。
 
 ## stack
 * gulp-clean-css //压缩css
