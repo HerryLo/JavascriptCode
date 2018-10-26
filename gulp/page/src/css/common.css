@@ -1,0 +1,10 @@
+html,body, div, ul, li{
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+html,body{
+    height: 100%;
+}
+input{overflow: hidden;}
+a{text-decoration: none}
