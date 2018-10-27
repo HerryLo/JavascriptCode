@@ -13,11 +13,12 @@ var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var pxtorem = require('postcss-pxtorem');
 
-const temUrl = 'page/src';
+const temUrl = 'src/page';
+const _include = './src/_include';
 const testHtmlminSrc = [`./${temUrl}/**/*.html`, `./${temUrl}/*.html`];
 const minifycssSrc = [`./${temUrl}/**/*.css`];
 const minifyjsSrc = [`./${temUrl}/**/*.js`];
-const testImageminSrc = [`./${temUrl}/**/*.{png,jpg,gif,ico}`, `./${temUrl}/**/*.{png,jpg,gif,ico}`];
+const testImageminSrc = [`./${temUrl}/**/*.{png,jpg,gif,ico}`, `./${temUrl}/**/**/*.{png,jpg,gif,ico}`];
 
 gulp.task('testHtmlmin', function () {
     const options = {
@@ -33,7 +34,7 @@ gulp.task('testHtmlmin', function () {
     gulp.src(testHtmlminSrc)
         .pipe(fileinclude({
             prefix: '@@', //变量前缀 @@include
-            basepath: './page/_include', //引用文件路径
+            basepath: _include, //引用文件路径
             indent: true //保留文件的缩进
         }))
         .pipe(htmlmin(options))
@@ -44,7 +45,7 @@ gulp.task('testHtmlmin', function () {
 gulp.task('minifycss', function () {
     var processors = [
         autoprefixer({
-            browsers: 'last 3 version'
+            browsers: 'last 5 version'
         }),
         pxtorem({
             rootValue: 32,

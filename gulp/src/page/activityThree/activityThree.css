@@ -6,11 +6,15 @@
     font-size:28px;
     min-width: 620px;
 }
+.marginHeight{
+    height: 111px;
+}
 .activityThreeBanner{
-    width: 100%;
-    height: 100%;
-    /* background: url('../img/activityThree/banner.png') no-repeat center center; */
+    width: 80.4%;
+    height: 421px;
+    background: url('../img/activityThree/bannerTop.png') no-repeat center center;
     background-size: 100% 100%;
+    margin: auto;
 }
 
 /* input 输入框 */
@@ -33,7 +37,7 @@
 }
 .content{
     width:99%;
-    height:323px;
+    height:320px;
     background:rgba(255,255,255,1);
     border:1Px solid rgba(253, 215, 91, 1);
     box-shadow:0px 0px NaNpx NaNpx rgba(234,81,57,0.5);
@@ -121,4 +125,70 @@
     height: 101px;
     background-size: 100% 100%;
     margin: 19px auto;
+}
+
+/* 分割图 */
+.lineImg{
+    width: 100%;
+    height: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    margin-bottom: 54px;
+}
+.lineImgLeft{
+    width: 129px;
+    height: 6px;
+    background: url('../img/activityThree/group14.png') no-repeat center center;
+    background-size: 100% 100%;
+}
+.lineImgMiddl{
+    width: 446px;
+    height: 26px;
+    background: url('../img/activityThree/grouplogo.png') no-repeat center center;
+    background-size: 100% 100%;
+}
+.lineImgRight{
+    width: 129px;
+    height: 6px;
+    background: url('../img/activityThree/group13.png') no-repeat center center;
+    background-size: 100% 100%;
+}
+
+/* 轮播列表 */
+.broaDcast{
+    height: 596px;
+    width: 81.3%; 
+    margin: auto;
+    position: relative;
+}
+.broaDcast_top{
+    background: url('../img/activityThree/broadtitle.png') no-repeat center center;
+    background-size: 100% 100%;
+    width: 54%;
+    height: 83px;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.broaDcast_centent{
+    margin-top: 35px;
+    width: 100%;
+    height:550px;
+    background:rgba(255,255,255,1);
+    border:4px solid rgba(253, 215, 91, 1);
+    border-radius:10px;
+    box-sizing: border-box;
+}
+/* 底部图片 */
+.footerImg{
+    margin: auto;
+    width: 74%;
+    height: 57px;
+    background: url('../img/activityThree/footer.png') no-repeat center center;
+    background-size: 100% 100%;
+    margin-top: 49px;
+    margin-bottom: 147px;
 }
