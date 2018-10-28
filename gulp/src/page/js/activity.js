@@ -185,7 +185,7 @@ function btnClickEvent(type) {
                 regState = true;
                 // location.href = src;
                 if(type == 'activityThree'){
-                    location.href = '../activityList/activityList.html';
+                    location.href = './activityList.html';
                 }else{
                     location.href = './download.html';
                 }
