@@ -8,7 +8,7 @@ var _jsonComment  = (function() {
     }
     mother = Number(mother) > 10?mother:0+mother;
     var nowData = year+'.'+mother+'.'+day
-    var url = '../img/imgIcon/'
+    var url = './img/imgIcon/'
     var jsonComment = [{
         phone: '189****0979',
         createTime: nowData,
