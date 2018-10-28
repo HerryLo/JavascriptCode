@@ -18,7 +18,7 @@ const _include = './src/_include';
 const testHtmlminSrc = [`./${temUrl}/**/*.html`, `./${temUrl}/*.html`];
 const minifycssSrc = [`./${temUrl}/**/*.css`];
 const minifyjsSrc = [`./${temUrl}/**/*.js`];
-const testImageminSrc = [`./${temUrl}/**/*.{png,jpg,gif,ico}`, `./${temUrl}/**/**/*.{png,jpg,gif,ico}`];
+const testImageminSrc = [`./${temUrl}/**/*.{png,jpg,gif,ico}`];
 
 gulp.task('testHtmlmin', function () {
     const options = {
@@ -68,7 +68,7 @@ gulp.task('minifyjs', function () {
         .pipe(sourcemaps.init())
         .pipe(strip()) //去除注释
         .pipe(babel({
-            presets: ['env']
+            presets: ['env', 'es2015', 'stage-0'],
         }))
         .pipe(sourcemaps.write({
             addComment: false

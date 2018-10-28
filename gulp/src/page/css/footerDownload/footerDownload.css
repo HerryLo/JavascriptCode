@@ -10,10 +10,30 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    z-index: 999;
 }
 .footerDownload .logo{
     background: url('../../../img/activityThree/logoDown@2x.png') no-repeat center center;
     background-size: 100% 100%;
     width: 87px;
     height: 87px;
+}
+.footerDownload .downloadBtn{
+    display: inline-block;
+    background: url('../../../img/activityThree/download.png') no-repeat center center;
+    background-size: 100% 100%;
+    width: 31.8%;
+    height: 87px;
+}
+.footerDownload .word{
+    position: relative;
+}
+.footerDownload .word .name{
+    font-size:30px;
+    font-weight:500;
+    color:rgba(246,65,41,1);
+}
+.footerDownload .word .desc{
+    font-size:20px;
+    color:rgba(152,152,152,1);
 }

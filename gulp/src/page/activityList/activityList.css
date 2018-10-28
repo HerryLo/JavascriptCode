@@ -1,0 +1,156 @@
+#activityList{
+    width: 100%;
+    height: 100%;
+    min-width: 620px;
+    background: #f6f6f6;
+}
+.listTop{
+    width: 100%;
+    height:80px;
+    background:rgba(255,255,255,1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+/* img {
+    width: 21px;
+    height: 41px;
+} */
+.listTop .title{
+    font-size:30px;
+    color:rgba(51,51,51,1);
+}
+.listTop .imgEle{
+    width:8px;
+    height:28px;
+    background:linear-gradient(135deg,rgba(253,143,95,1),rgba(253,80,71,1));
+    box-shadow:0px 6px 7px 0px rgba(253, 73, 85, 0.35);
+    margin-left: 13px;
+    margin-right: 13px;
+}
+
+.list_content{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* 块 */
+.item_list{
+    width:49.86%;
+    height:auto;
+    background:rgba(255,255,255,1);
+    padding: 24px 35px 23px 35px;
+    box-sizing: border-box;
+    border-top: 2px solid #f6f6f6;
+}
+.item_list:nth-child(even){
+    border-left: 2px solid #f6f6f6;
+}
+.item_list_1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.item_list_1 img{
+    height: 60px;
+    width: 60px;
+    margin: 0;
+    margin-right: 16px;
+}
+.item_list_1 .title_desc .title{
+    font-size:26px;
+    color:rgba(51,51,51,1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.item_list_1 .title_desc .desc{
+    font-size:20px;
+    color:#989898;
+}
+.item_list_1 .title_desc .desc a{
+    color: #5C76FB;
+}
+
+.item_list_2{
+    margin-top:18px;
+    font-size:26px;
+    color:rgba(51,51,51,1);
+}
+.item_list_2 a{
+    color: #FD5047;
+}
+
+.item_list_3{
+    margin-top: 16px;
+    font-size:22px;
+    color:rgba(152,152,152,1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item_list_4{
+    width: 100%;
+}
+.item_list_4_Btn{
+    display: block;
+    margin: auto;
+    width:200px;
+    height:58px;
+    border:2px solid rgba(92,118,251,1);
+    border-radius:29px;
+    font-size:28px;
+    color:rgba(92,118,251,1);
+    line-height: 58px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.wrap_content{
+    /* width: 1200px; */
+    background: #ffffff;
+    height:auto;
+    border-top: 2px solid #f6f6f6;
+    /* overflow-x: auto; */
+    /* display: flex;
+    align-items: center; */
+    display: -webkit-box;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling:touch;
+
+}
+.wrap_contentItem{
+    padding: 26px 24px 27px 24px;
+    text-align: center;
+    /* flex-grow: 1; */
+}
+.wrap_contentItem img{
+    width: 208px;
+    height: 130px;
+    margin-bottom: 21px;
+}
+.wrap_contentItem .bankName{
+    font-size:28px;
+    font-family:PingFang-SC-Medium;
+    font-weight:500;
+    color:rgba(51,51,51,1);
+}
+.wrap_contentItem .number{
+    font-size:22px;
+    color:#989898;
+}
+.wrap_contentItem .number a{
+    color: #5C76FB;
+}
+
+/* 底部图片 */
+.footerImg{
+    margin: auto;
+    width: 74%;
+    height: 57px;
+    background: url('../img/activityThree/footer.png') no-repeat center center;
+    background-size: 100% 100%;
+    margin-top: 49px;
+    margin-bottom: 147px;
+}

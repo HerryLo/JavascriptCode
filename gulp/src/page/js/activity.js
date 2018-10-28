@@ -1,7 +1,7 @@
 
-var httpUrl = 'http://118.25.39.245:8080'
+var httpUrl = 'http://118.31.57.147:8080'
 var data = [];
-var time = 60;
+var timeIn = 60;
 var self = {}
 var states = true;
 var regState = true;
@@ -62,16 +62,16 @@ function locsearch(n) {
 
 // 请求token
 function getSendCode() {
-$.ajax({
-    url: httpUrl+'/api/app/borrow/order/sms/data',
-    type: 'POST',
-    data: {
-    number: _getSend()
-    },
-    success: function (data) {
-        self.data = data;
-    }
-})
+    $.ajax({
+        url: httpUrl+'/api/app/borrow/order/sms/data',
+        type: 'POST',
+        data: {
+        number: _getSend()
+        },
+        success: function (data) {
+            self.data = data;
+        }
+    })
 }
   
 
@@ -140,20 +140,65 @@ function htmlTemplet(item) {
 
 // 验证码倒计时
 function setInterValFun() {
-    var timer,
+    var _timerInt,
     html = $('.verCode-btn');
-    clearInterval(timer);
-    timer = setInterval(function () {
-    if (time === 0) {
-        time = 60
+    clearInterval(_timerInt);
+    _timerInt = setInterval(function () {
+    if (timeIn === 0) {
+        timeIn = 60
         html.html('发送验证码');
-        clearInterval(timer);
+        clearInterval(_timerInt);
         states = true;
         return;
     }
-    html.html('重新发送('+time+'s)');
-    time--
+    html.html('重新发送('+timeIn+'s)');
+    timeIn--
     }, 1000)
+}
+
+// 按钮注册事件
+function btnClickEvent(type) {
+    var h5Source = locsearch('channel')
+    var phoneNumber = $('#phoneNumber').val();
+    var reg = /^1[34578]\d{9}$/;
+    if (phoneNumber === '') {
+        alert('请填写您的手机号')
+        return;
+    } else if (!reg.test(phoneNumber)) {
+        alert('请填写正确的手机号')
+        return;
+    } 
+    if(!regState) return false;
+    regState = false;
+    var src = 'https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-duanxin/app-duanxin-release_100_jiagu_sign.apk';
+    $.ajax({
+        url: httpUrl+'/api/pc/login',
+        type: 'POST',
+        data: {
+            mobile:$('#phoneNumber').val(),
+            code: $('#verCode').val(),
+            h5Source: h5Source?h5Source:''
+        },
+        success: function (data) {
+            if(data.resultCode == 200){
+                var resultModel = data.resultModel
+                regState = true;
+                // location.href = src;
+                if(type == 'activityThree'){
+                    location.href = '../activityList/activityList.html';
+                }else{
+                    location.href = './download.html';
+                }
+                localStorage.setItem('_ResultModel', resultModel)
+            }else{
+                regState = true;
+                alert(data.resultMessage)
+            }
+        },
+        error: function(){
+            regState = true;
+        }
+    })
 }
 
 function btnEvent(){
@@ -194,43 +239,9 @@ function btnEvent(){
         })
     })
 
-    $('.btnTwo').click(function(){
-        // location.href = './download.html';
-        var h5Source = locsearch('channel')
-        if(!regState) return false;
-        regState = false;
-        var src = 'https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-duanxin/app-duanxin-release_100_jiagu_sign.apk';
-        // if(resultM) {
-        //     location.href = src;
-        //     return false;
-        // }
-        $.ajax({
-            url: httpUrl+'/api/pc/login',
-            type: 'POST',
-            data: {
-                mobile:$('#phoneNumber').val(),
-                code: $('#verCode').val(),
-                h5Source: h5Source?h5Source:''
-            },
-            success: function (data) {
-                if(data.resultCode == 200){
-                    var resultModel = data.resultModel
-                    regState = true;
-                    // location.href = src;
-                    location.href = './download.html';
-                    // $('.phone_isShow').hide();
-                    // $('.bg').hide();
-                    // setIntTimer();
-                    localStorage.setItem('_ResultModel', resultModel)
-                }else{
-                    regState = true;
-                    alert(data.resultMessage)
-                }
-            },
-            error: function(){
-                regState = true;
-            }
-        })
+    $('.btnTwo').click(function(e){
+        var { type } = e.target.dataset
+        btnClickEvent(type)
     })
 
     // 发送验证码
@@ -240,8 +251,12 @@ function btnEvent(){
         var reg = /^1[34578]\d{9}$/;
         if (phoneNumber === '') {
             alert('请填写您的手机号')
+            states = true
+            return;
         } else if (!reg.test(phoneNumber)) {
             alert('请填写正确的手机号')
+            states = true
+            return;
         } else {
         console.log(self.data);
         $.ajax({
@@ -271,10 +286,6 @@ function setIntTimer() {
     twoActTimer = setInterval(function() {
         if(twoActCount >= 3){
             clearInterval(twoActTimer);
-            $('#hideInput').hide();
-            $('#hideBtn').show();
-            $('.prog').hide();
-            $('.bg').show();
         }
         twoActCount++;
     }, 1000)

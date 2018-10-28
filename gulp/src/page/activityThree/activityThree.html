@@ -22,7 +22,7 @@
                         <div class="inputPhone">
                             <div class="word">输入手机号</div>
                             <div class="input">
-                                <input type="tel">
+                                <input type="tel" id="phoneNumber">
                             </div>
                         </div>
                         <div class="line"></div>
@@ -31,9 +31,9 @@
                         <div class="inputPhone">
                             <div class="word">输入验证码</div>
                             <div class="input">
-                                <input type="tel">
+                                <input type="tel" id="verCode">
                             </div>
-                            <div class="btn">获取验证码</div>
+                            <div class="btn12 verCode-btn" id="verCode-btn">获取验证码</div>
                         </div>
                         <div class="line"></div>
                     </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <!-- 按钮 -->
-        <div class="regBtn"></div>
+        <div class="regBtn btnTwo" data-type="activityThree"></div>
         <!-- 分割图 -->
         <div class="lineImg">
             <div class="lineImgLeft"></div>
@@ -52,18 +52,37 @@
         <!-- 列表轮播 -->
         <div class="broaDcast">
             <div class="broaDcast_top"></div>
-            <div class="broaDcast_centent">
-                
+            <div class="broaDcast_listMargin">
+                <div class="broaDcast_listMargin_div">
+                    <div class="broaDcast_listMargin_line"></div>
+                </div>
+            </div>
+            <div class="broaDcast_content">
+                <div class="broaDcast_list">
+                    <!-- <div class="list">
+                        <div>
+                            <div class="headUrl"></div>
+                            <div class="list_right">
+                                <div class="phone_time">
+                                    <div class="phone">188****3063</div>
+                                    <div class="time">2018.07.14</div>
+                                </div>
+                                <div class="desc">放款真的很快</div>
+                            </div>
+                        </div>
+                        <div class="footHeight"></div>
+                    </div> -->
+                </div>
             </div>
         </div>
         <!-- 底部图片 -->
         <div class="footerImg"></div>
         <!-- 底部悬浮下载 -->
-        <!-- @@include('./footerDownload/footerDownload.html') -->
-        <div class="footerDownload">
-            <div class="logo"></div>
-        </div>
+        @@include('./footerDownload/footerDownload.html')
     </div>
 </body>
+<script src="../config/staticComment.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/activity.js"></script>
 <script src="./activityThree.js"></script>
 </html>
