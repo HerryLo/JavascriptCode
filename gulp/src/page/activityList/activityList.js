@@ -42,6 +42,7 @@ function domHtmlList(data) {
     }
     $('.list_content').html(html);
     $('.item_list_4_Btn').click((event)=> {
+        event.stopPropagation()
         const id = $(event.target).attr('data-id');
         requestData({
             url : '/api/pc/apply/smallloan',
@@ -67,13 +68,15 @@ function listHtmlCard(data) {
     for(let i=0;i<len;i++){
         let item = data.resultModel[i];
         html += '<div class="wrap_contentItem" data-id='+item.id+'>'+
-        '<img src="'+item.avatar+'" alt="">'+
+        '<img data-id='+item.id+' src="'+item.avatar+'" alt="">'+
         '<div class="bankName">'+item.name+'</div>'+
         '<div class="number"><a>'+item.applyNum+'</a>人申请成功</div></div>'
     }
     $('.wrap_content').html(html);
-    $('.wrap_contentItem').click((event)=> {
-        const type = $(event.target).attr('data-id');
+    $('.wrap_contentItem img').click((event)=> {
+        event.stopPropagation()
+        const id = $(event.target).attr('data-id');
+        console.log(id);
         requestData({
             url : '/api/pc/apply/smallloan',
             type: 'list',
@@ -81,7 +84,7 @@ function listHtmlCard(data) {
                 smallLoanId: id
             },
             header: {
-                'accessToken': resultM?resultM:''
+                'access-token': resultM?resultM:''
             },
             fn: function(data) {
                 console.log(data)
