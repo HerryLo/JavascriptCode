@@ -1,3 +1,7 @@
+let _ResultModelThree = localStorage.getItem('_ResultModel') || '';
+if(_ResultModelThree){
+    location.href = './activityList.html'
+}
 clearInterval(window.timerThree);
 // <!-- 列表渲染 -->
 function activityThreeHtmlFunction () {
