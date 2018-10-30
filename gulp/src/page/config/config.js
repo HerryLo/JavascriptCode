@@ -1,0 +1,1 @@
+window._httpUrl = 'https://www.mybaibaodai.com'

@@ -1,5 +1,5 @@
 
-var httpUrl = 'http://118.31.57.147:8080'
+var httpUrl = window._httpUrl
 var data = [];
 var timeIn = 60;
 var self = {}
@@ -177,7 +177,8 @@ function btnClickEvent(type) {
         data: {
             mobile:$('#phoneNumber').val(),
             code: $('#verCode').val(),
-            h5Source: h5Source?h5Source:''
+            h5Source: h5Source?h5Source:'',
+            channel:"h5"
         },
         success: function (data) {
             if(data.resultCode == 200){
@@ -218,7 +219,8 @@ function btnEvent(){
             data: {
                 mobile:$('#phoneNumber').val(),
                 code: $('#verCode').val(),
-                h5Source: h5Source?h5Source:''
+                h5Source: h5Source?h5Source:'',
+                channel:"h5"
             },
             success: function (data) {
                 if(data.resultCode == 200){

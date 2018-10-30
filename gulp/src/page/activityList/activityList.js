@@ -1,4 +1,4 @@
-const httpUrl = 'http://118.31.57.147:8080'
+const httpUrl = window._httpUrl
 const resultM = localStorage.getItem('_ResultModel') || '';
 /**
  * 请求数据
@@ -96,6 +96,10 @@ function listHtmlCard(data) {
 }
 
 function main() {
+    let _ResultModelThree = localStorage.getItem('_ResultModel') || '';
+    if(_ResultModelThree){
+        location.href = './activityThree.html'
+    }
     // 列表
     requestData({
         url : '/api/pc/recommend/smallloan/list',
