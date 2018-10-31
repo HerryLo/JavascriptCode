@@ -187,6 +187,8 @@ function btnClickEvent(type) {
                 // location.href = src;
                 if(type == 'activityThree'){
                     location.href = './activityList.html';
+                }else if(type == 'activitydl') {
+                    location.href = 'https://myzc-open.oss-cn-hangzhou.aliyuncs.com/package/channel-h5/app-h5-release_110_jiagu_sign.apk'
                 }else{
                     location.href = './download.html';
                 }
