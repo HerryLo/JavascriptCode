@@ -97,7 +97,7 @@ function listHtmlCard(data) {
 
 function main() {
     let _ResultModelThree = localStorage.getItem('_ResultModel') || '';
-    if(_ResultModelThree){
+    if(!_ResultModelThree){
         location.href = './activityThree.html'
     }
     // 列表
