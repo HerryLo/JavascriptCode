@@ -1,0 +1,76 @@
+
+#activityThreeBg{
+    width: 100%;
+    height: 100%;
+    background: url('../img/dlb/bg5.png') no-repeat center center;
+    background-size: 100% 100%;
+    font-size:28px;
+    min-width: 620px;
+}
+.marginHeight{
+    height: 78px;
+}
+
+.dlTop{
+    background: url('../img/dlb/bg1.png') no-repeat center center;
+    background-size: 100% 100%;
+    width: 338px;
+    height: 187px;
+    margin-left: 61px;
+}
+
+.activityThreeBanner{
+    margin-left: 61px;
+    margin-top: 116px;
+    background: url('../img/dlb/bg4.png') no-repeat center center;
+    background-size: 100% 100%;
+    width: 221px;
+    height: 193px;
+}
+.wrap_content{
+    width:80%;
+    height:440px;
+    background:rgba(255,255,255,1);
+}
+.content_input{
+    margin-top: 0px;
+}
+.line{
+    background: #333333;
+}
+.regBtnBg{
+    background: #333333;
+}
+.footerImg12{
+    color: #989898;
+}
+.inputPhone .word{
+    margin-left: 0px;
+}
+.bgLock{
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 24px;
+    height: 36px;
+    background: url(../img/dlb/bg3.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.bgPhone{
+    margin-left: 4px;
+    margin-right: 4px;
+    width: 24px;
+    height: 36px;
+    background: url(../img/dlb/bg2.png) no-repeat center center;
+    background-size: 100% 100%;
+}
+.btn12{
+    font-size: 12px;
+    background:rgba(51,51,51,1);
+    width: 150px;
+}
+#verCode{
+    width: 90px;
+}
+.content{
+    width: 90%;
+}
