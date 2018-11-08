@@ -35,7 +35,7 @@ function domHtmlList(data) {
         '<div class="desc"><a>'+item.applyNum+'</a>人申请成功</div></div></div>'+
         '<div class="item_list_2"><div>最高额度：<a>'+item.maxBorrowAmount+'</a></div>'+
         '<div>下款时间：<a>'+item.sendMoneyTime+'</a></div></div>'+
-        '<div class="item_list_3">新用户注册享受30天免息</div>'+
+        '<div class="item_list_3">'+item.productIntro+'</div>'+
         '<div class="item_list_4">'+
         '<a class="item_list_4_Btn" data-id='+item.id+'>立即申请</a>'+
         '</div></div>'
