@@ -1,0 +1,141 @@
+#at{
+    background: url(../img/at/bg.png) no-repeat center center;
+    width: 100%;
+    height: 100%;
+    background-size: 100% 100%;
+}
+.marginHeight{
+    height: 30px;
+}
+.Atbg{
+    width: 96%;
+    height: 703px;
+    background: url(../img/at/decorate.png) no-repeat center center;
+    background-size: 100% 100%;
+    margin: auto;
+}
+.Atbg_word{
+    width: 86%;
+    height: 140px;
+    background: url(../img/at/word.png) no-repeat center center;
+    background-size: 100% 100%;
+    margin: auto;
+}
+.Atbg_wordHeight{
+    height: 88px;
+}
+.Atbg_word_bg{
+    width: 100%;
+    height: 177px;
+    background: url(../img/at/talk.png) no-repeat center center;
+    background-size: 100% 100%;
+    margin: auto;
+    position: relative;
+}
+.Atbg_word_bgWord{
+    width: 84%;
+    margin: 80px auto auto auto;
+    font-size:12px;
+    color:rgba(255,139,25,1);
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;  /*限制在一个块元素显示的文本的行数*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.card{
+    background: url(../img/at/card.png) no-repeat center center;
+    width: 94%;
+    height: 1577px;
+    background-size: 100% 100%;
+    margin: auto;
+}
+.card_title{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size:40px;
+    font-weight:normal;
+    color:rgba(255,140,25,1);
+    /* margin-top: 64px;
+    margin-bottom: 59px; */
+    margin: 45px 20px 40px 10px;
+}
+.left{
+    background: url(../img/at/bgLeft.png) no-repeat center center;
+    width: 152px;
+    height: 26px;
+    background-size: 100% 100%;
+}
+.right{
+    background: url(../img/at/bgRight.png) no-repeat center center;
+    width: 152px;
+    height: 26px;
+    background-size: 100% 100%;
+}
+.card_rule{
+    margin: 0px 45px 30px 33px;
+}
+.card_rule_title{
+    width:180px;
+    height:50px;
+    background:rgba(11,148,217,1);
+    border-radius:25px;
+    line-height:50px;
+    font-size:24px;
+    font-weight:normal;
+    color:rgba(255,255,255,1);
+    text-align: center;
+}
+.card_rule_word{
+    width:95%;
+    /* height:77px; */
+    font-size:28px;
+    font-weight:normal;
+    color:rgba(255,139,25,1);
+    line-height:50px;
+    margin: 20px 0px 0px 30px;
+}
+.card_titleMargin{
+    height: 50px;
+}
+.rule_Explain{
+    width:87%;
+    margin: 58px auto auto auto;
+    /* height:377px; */
+    font-size:28px;
+    /* font-family:Adobe Heiti Std R; */
+    font-weight:normal;
+    color:rgba(255,139,25,1);
+    /* line-height:50px; */
+    line-height: 50px;
+}
+
+/* 滚动栏 */
+.broaDcast_content{
+    width:81%;
+    height:114px;
+    margin: 30px auto 34px auto;
+    border-radius:4px;
+    background:rgba(254,220,120,1);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+.content{
+    width:100%;
+    /* height:114px; */
+    /* background:rgba(254,220,120,1); */
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+}
+.name{
+    width:90%;
+    /* height:27px; */
+    font-size:24px;
+    color:rgba(255,139,25,1);
+    /* line-height:50px; */
+    /* padding: 13px  */
+    margin: auto;
+    padding-top: 5px;
+}
