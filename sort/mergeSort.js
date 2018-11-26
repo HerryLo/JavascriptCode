@@ -12,7 +12,9 @@ function mergSort(arr, first, last) {
         let mid = Math.floor((first+last)/2)
         mergSort(arr, first, mid)
         mergSort(arr, mid+1, last)
-        mergeArray(arr, first, mid, last, temp)
+        // if(arr[]){
+            mergeArray(arr, first, mid, last, temp)
+        // }
     }
 }
 
