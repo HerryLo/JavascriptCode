@@ -22,12 +22,12 @@ var REJECTED = 2;
 
 module.exports = Promise;
 
-function Promise(resolver) {
+function _Promise(resolver) {
     if (!isFunction(resolver)) {
-        throw new TypeError('resolver must be a function');
+        throw new Error('resolver must be a function');
     }
     this.state = PENDING;
-    this.value = void 0;
+    this.value = 0;
     this.queue = [];
     if (resolver !== INTERNAL) {
         safelyResolveThen(this, resolver);
@@ -35,72 +35,68 @@ function Promise(resolver) {
 }
 
 function safelyResolveThen(self, then) {
-    var called = false;
-    try {
-        then(function (value) {
-            if (called) {
-                return;
-            }
+    let call = false;
+    try{
+        then(( value )=> {
+            if(call){ return }
             called = true;
             doResolve(self, value);
-        }, function (error) {
-            if (called) {
-                return;
-            }
+        }, ( error )=> {
+            if(call){ return }
             called = true;
             doReject(self, error);
-        });
-    } catch (error) {
-        if (called) {
-            return;
-        }
+        })
+    }catch(e){
+        if(call){ return }
         called = true;
-        doReject(self, error);
+        doReject(self, e);
     }
 }
 
 function doResolve(self, value) {
-    try {
-        var then = getThen(value);
-        if (then) {
-            safelyResolveThen(self, then);
-        } else {
-            self.state = FULFILLED;
-            self.value = value;
-            self.queue.forEach(function (queueItem) {
-                queueItem.callFulfilled(value);
-            });
+    try{
+        let then = getThen(value);
+        if(then){
+            safelyResolveThen(then, value)
+        }else{
+            self.state = FULFILLED
+            self.value = value
+            self.queue.forEach((callBack)=> {
+                callBack.callFulfilled(value)
+            })
         }
-        return self;
-    } catch (error) {
-        return doReject(self, error);
+        return self
+    }catch(e){
+        doReject(self, e);
     }
+    
 }
 
 function doReject(self, error) {
-    self.state = REJECTED;
-    self.value = error;
-    self.queue.forEach(function (queueItem) {
-        queueItem.callRejected(error);
-    });
-    return self;
+    self.state = REJECTED
+    self.value = error
+    self.queue.forEach((callBack)=> {
+        callBack.callFulfilled(error)
+    })
+
+    return self
 }
 
 function getThen(obj) {
-    var then = obj && obj.then;
+    let obj = obj && obj.then;
     if (obj && (isObject(obj) || isFunction(obj)) && isFunction(then)) {
         return function appyThen() {
-            then.apply(obj, arguments);
+          then.apply(obj, arguments);
         };
     }
 }
 
-Promise.prototype.then = function (onFulfilled, onRejected) {
+_Promise.prototype.then = (onFulfilled, onRejectedx) => {
     if (!isFunction(onFulfilled) && this.state === FULFILLED ||
-        !isFunction(onRejected) && this.state === REJECTED) {
-        return this;
+    !isFunction(onRejected) && this.state === REJECTED) {
+    return this;
     }
-    var promise = new this.constructor(INTERNAL);
+    let promise = new this.constructor(INTERNAL);
     if (this.state !== PENDING) {
         var resolver = this.state === FULFILLED ? onFulfilled : onRejected;
         unwrap(promise, resolver, this.value);
@@ -108,8 +104,4 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
         this.queue.push(new QueueItem(promise, onFulfilled, onRejected));
     }
     return promise;
-};
-
-Promise.prototype.catch = function (onRejected) {
-    return this.then(null, onRejected);
-};
+}
