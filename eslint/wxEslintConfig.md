@@ -1,15 +1,19 @@
 ## 原生小程序 eslint配置
 
-```
+```json
 <!-- .eslintrc.json 文件 -->
 {
     "env": {
         "browser": true,
+        "commonjs": true,
         "es6": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "rules": {
@@ -31,3 +35,5 @@
 }
 ```
 globals全局配置可以避免小程序定义的方法检测报错
+
+![eslint 配置指南](https://cn.eslint.org/docs/user-guide/getting-started)
