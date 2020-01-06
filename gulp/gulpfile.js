@@ -12,6 +12,7 @@ const sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var pxtorem = require('postcss-pxtorem');
+var connect = require('gulp-connect')
 
 const temUrl = 'src/page';
 const _include = './src/_include';
@@ -19,6 +20,14 @@ const testHtmlminSrc = [`./${temUrl}/**/*.html`, `./${temUrl}/*.html`];
 const minifycssSrc = [`./${temUrl}/**/*.css`];
 const minifyjsSrc = [`./${temUrl}/**/*.js`];
 const testImageminSrc = [`./${temUrl}/**/*.{png,jpg,gif,ico}`];
+
+gulp.task('webserver',function() {
+    connect.server({
+        livereload:true,
+        port: 2333,
+        root: 'dist',
+    });
+});
 
 gulp.task('testHtmlmin', function () {
     const options = {
@@ -93,4 +102,4 @@ gulp.task('watch', function () {
 })
 
 //默认命令，在cmd中输入gulp后，执行的就是这个任务(压缩js需要在检查js之后操作)
-gulp.task('default', ['testHtmlmin', 'minifyjs', 'testImagemin', 'minifycss', 'watch']);
+gulp.task('default', ['watch', 'webserver']);

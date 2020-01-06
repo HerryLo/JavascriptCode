@@ -24,6 +24,7 @@
     "browserify": "^16.2.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "gulp-connect": "^5.7.0",
     "gulp-file-include": "^2.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^4.1.0",
